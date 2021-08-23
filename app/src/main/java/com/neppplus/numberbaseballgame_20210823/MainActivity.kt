@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 //            numberEdt의 문구를 비워주고싶다
             numberEdt.setText("")
 
+//            리스트뷰를 최하단으로 내리기
+            messageListView.smoothScrollToPosition(messageList.size - 1)
+
         }
 
     }
