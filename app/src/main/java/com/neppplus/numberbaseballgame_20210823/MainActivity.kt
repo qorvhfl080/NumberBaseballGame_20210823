@@ -24,5 +24,20 @@ class MainActivity : AppCompatActivity() {
 
         messageListView.adapter = messageAdapter
 
+        okBtn.setOnClickListener {
+
+            val inputNumStr = numberEdt.text.toString()
+
+            val msg = Message(inputNumStr, "USER")
+
+            messageList.add(msg)
+
+            messageAdapter.notifyDataSetChanged()
+
+//            numberEdt의 문구를 비워주고싶다
+            numberEdt.setText("")
+
+        }
+
     }
 }
