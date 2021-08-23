@@ -2,6 +2,7 @@ package com.neppplus.numberbaseballgame_20210823
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.neppplus.numberbaseballgame_20210823.adapter.MessageAdapter
@@ -103,10 +104,38 @@ class MainActivity : AppCompatActivity() {
 
     fun makeQuestionNumbers() {
 
-//        고정된 세개 숫자를 임시 문자로
-        mQuestionNumbers.add(4)
-        mQuestionNumbers.add(7)
-        mQuestionNumbers.add(1)
+//        랜덤한 3개 숫자를 문제로
+//        1~9 숫자만, 중복 숫자 X
+        for (i in 0..2) {
+            while (true) {
+
+//                1~9 사이의 랜덤 정수 추출
+                val randomNum = (Math.random() * 9 + 1).toInt()
+
+                var isDupleOk = true
+
+//                mQuestionNumbers에 이미 들어있는지 검사
+                for (num in mQuestionNumbers) {
+                    if (num == randomNum) {
+//                        중복된 숫자 발견
+                        isDupleOk = false
+                    }
+                }
+
+//                중복검사를 통과한 상태로 유지
+                if (isDupleOk == true) {
+                    mQuestionNumbers.add(randomNum)
+//                    무한 반복 탈출
+                    break
+                }
+
+            }
+
+        }
+
+        for (num in mQuestionNumbers) {
+            Log.d("출제숫자", num.toString())
+        }
 
 //        환영 메세지를 채팅창에 띄우기
 //        메세지 리스트에 띄워줄 메세지 데이터 추가
