@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.neppplus.numberbaseballgame_20210823.R
 import com.neppplus.numberbaseballgame_20210823.data.Message
 
-class MessageAdapter(val mContext: Context, val resId: Int, mList: ArrayList<Message>) : ArrayAdapter<Message>(mContext, resId, mList) {
+class MessageAdapter(val mContext: Context, val resId: Int, val mList: ArrayList<Message>) : ArrayAdapter<Message>(mContext, resId, mList) {
 
     val mInflater = LayoutInflater.from(mContext)
 
@@ -23,8 +23,6 @@ class MessageAdapter(val mContext: Context, val resId: Int, mList: ArrayList<Mes
         val row = tempRow!!
 
         val data = mList[position]
-
-
 
         return row
     }
