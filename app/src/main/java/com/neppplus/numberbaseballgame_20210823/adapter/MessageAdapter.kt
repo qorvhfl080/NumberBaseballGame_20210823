@@ -30,6 +30,17 @@ class MessageAdapter(val mContext: Context, val resId: Int, val mList: ArrayList
         val cpuMessageTxt = row.findViewById<TextView>(R.id.cpuMessageTxt)
         val userMessageTxt = row.findViewById<TextView>(R.id.userMessageTxt)
 
+        if (data.writer == "CPU") {
+            userMessageLayout.visibility = View.GONE
+
+            cpuMessageTxt.text = data.content
+
+        } else {
+            cpuMessageLayout.visibility = View.GONE
+
+            userMessageTxt.text = data.content
+        }
+
         return row
     }
 
