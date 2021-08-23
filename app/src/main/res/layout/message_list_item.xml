@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/cpuMessageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left">
+
+        <TextView
+            android:id="@+id/cpuMessageTxt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:paddingLeft="20dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/speech_bubble_other"
+            android:text="컴퓨터의 말"
+            android:textSize="24sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userMessageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/userMessageTxt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/speech_bubble_my"
+            android:text="사용자의 말"
+            android:textSize="24sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
