@@ -3,7 +3,6 @@ package com.neppplus.numberbaseballgame_20210823
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.neppplus.numberbaseballgame_20210823.adapter.MessageAdapter
 import com.neppplus.numberbaseballgame_20210823.data.Message
@@ -60,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         userInputNumArr.add(inputNum / 100)
         userInputNumArr.add(inputNum / 10 % 10)
         userInputNumArr.add(inputNum % 10)
+        Log.d("debug", "userInputNumArr = $userInputNumArr")
 
         var strikeCount = 0
         var ballCount = 0
@@ -67,20 +67,24 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..2) {
 
             for (j in 0..2) {
-//                내가 입력한 숫자
+
                 if (userInputNumArr[i] == mQuestionNumbers[j]) {
 //                    같은 숫자
-//                    위치도 같은 위치
+
                     if (i == j) {
+//                        위치도 같은 위치
                         strikeCount++
+                        Log.d("debug", "i=$i, j=$j 스트라이크 = $strikeCount")
                     } else {
                         ballCount++
+                        Log.d("debug", "i=$i, j=$j 볼 = $ballCount")
                     }
                 }
             }
         }
 
         messageList.add( Message("${strikeCount}S ${ballCount}B 입니다.", "CPU"))
+        Log.d("debug", "total 스트라이크 = $strikeCount, total 볼 = $ballCount")
 
         messageAdapter.notifyDataSetChanged()
 
@@ -111,20 +115,23 @@ class MainActivity : AppCompatActivity() {
 
 //                1~9 사이의 랜덤 정수 추출
                 val randomNum = (Math.random() * 9 + 1).toInt()
+                Log.d("debug", "randomNum = ${randomNum}")
 
-                var isDupleOk = true
+                var isDupliOk = true
 
 //                mQuestionNumbers에 이미 들어있는지 검사
                 for (num in mQuestionNumbers) {
                     if (num == randomNum) {
 //                        중복된 숫자 발견
-                        isDupleOk = false
+                        isDupliOk = false
+                        Log.d("debug", "중복입니다")
                     }
                 }
 
 //                중복검사를 통과한 상태로 유지
-                if (isDupleOk == true) {
+                if (isDupliOk == true) {
                     mQuestionNumbers.add(randomNum)
+                    Log.d("debug", "mQuestionNumbers = ${mQuestionNumbers}")
 //                    무한 반복 탈출
                     break
                 }
@@ -134,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         for (num in mQuestionNumbers) {
-            Log.d("출제숫자", num.toString())
+            Log.d("debug", num.toString())
         }
 
 //        환영 메세지를 채팅창에 띄우기
